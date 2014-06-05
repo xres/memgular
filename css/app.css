@@ -1,0 +1,123 @@
+body {
+  background-color: #fff;
+  color: #333;
+  font: 14px/1.4 sans-serif;
+  margin: 0;
+}
+
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#app-container {
+	margin: 10px;
+}
+
+#header {
+    margin-bottom: 10px;
+}
+
+#masthead {
+    text-align: right;
+}
+
+#authentication {
+    text-align: center;
+    margin: 10% 0;
+}
+
+#card-table {
+	list-style: none outside none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+	-webkit-perspective: 1000px;
+  	-moz-perspective: 1000px;
+	perspective: 1000px;
+}
+
+#card-table li {
+	float: left;
+	margin: 8px;
+}
+
+#card-table .card {
+    border-radius: 8px;
+    box-shadow: 2px 4px 8px #ccc;
+    display: table;
+    float: left;
+    text-align: center;
+    height: 180px;
+    width: 130px;
+}
+
+#card-table .flip-container {
+	-moz-transform-style: preserve-3d;
+	-webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	height: 200px;
+	width: 130px;
+}
+
+#card-table .flipper {
+	position: relative;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+	-moz-transition: all .5s ease 0s;
+	-webkit-transition: all 0.5s ease 0s;
+	transition: all 0.5s ease 0s;
+}
+
+#card-table .flipped .flipper {
+    -moz-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+#card-table .card-content {
+	display: table-cell;
+	font-size: 1.2rem;
+    overflow: hidden;
+	vertical-align: middle;
+    width: 130px;
+}
+
+#card-table .card-front,
+#card-table .card-back {
+	-moz-backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+    position: absolute;
+}
+
+#card-table .card-front {
+    background-color: #fff;
+    border: 1px solid #eedab8;
+    -moz-transform: rotateY(-180deg);
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+#card-table .card-back {
+    background-color: #f4b348;
+    border: 1px solid #d39b3e;
+}
+
+
+#card-table .card-photo {
+	width: 100%;
+}
+
+#card-table .card-text {
+	margin-top: 4px;
+    overflow: hidden;
+    width: 130px;
+}
+
+
+

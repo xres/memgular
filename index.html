@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="MemoryGame">
+<head>
+    <link rel="stylesheet" href="css/app.css">
+    <title>Social Concentration</title>
+</head>
+
+<body>
+<div id="app-container" ng-controller="AppController as app" ng-cloak>
+    <div id="header" ng-show="game.user.signedIn">
+        <div id="masthead">
+            Welcome, {{game.user.name}}!
+            <button type="button" ng-click="signOut()">Sign Out</button>
+        </div>
+
+        <div ng-show="!connectionsLoaded">Loading friends from LinkedIn. Please wait...</div>
+        <button type="button" ng-click="newGame()" ng-show="connectionsLoaded">New Game</button>
+
+        <div ng-show="game.deck.length > 0">
+            <br>
+            Guesses: {{game.user.guesses}}
+            <br>
+
+            <span ng-show="game.user.remainingPairs">{{game.user.remainingPairs}} pairs to go to win the game!</span>
+            <span ng-show="!game.user.remainingPairs">Yay! You win!</span>
+        </div>
+    </div>
+
+    <div id="authentication" ng-show="!game.user.signedIn">
+        <p>Sign in and let's play Social Concentration!</p>
+        <script type="in/Login"></script>
+    </div>
+
+    <ul id="card-table" sng-show="game.user.signedIn">
+        <li class="flip-container" ng-repeat="card in game.deck" ng-click="flip(card)" ng-class="{'flipped': card.isFlipped}">
+            <div class="flipper">
+                <div class="card card-front" ng-if="card.pictureUrl">
+                    <img ng-src="{{card.pictureUrl}}" class="card-photo">
+                    <!--
+                    <div class="card-text">{{card.name}}</div>
+                    -->
+                </div>
+                <div class="card card-front" ng-if="!card.pictureUrl">
+                    <div class="card-content">
+                        {{card.name}}
+                    </div>
+                </div>
+                <div class="card card-back"></div>
+            </div>
+        </li>
+    </ul>
+</div>
+
+
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+<script src="js/app.js"></script>
+<script src="//platform.linkedin.com/in.js">
+    api_key: [your-linkedin-api-key]
+    onLoad: initLinkedIn
+    authorize: true
+</script>
+
+</body>
+</html>
